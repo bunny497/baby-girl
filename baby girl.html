@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe6eb, #fff0f5);
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background: #ff4d6d;
+      padding: 15px;
+    }
+
+    nav button {
+      background: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: #c9184a;
+    }
+
+    .page {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .play-btn {
+      background: #ff4d6d;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .message {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 15px 0;
+      color: #6a040f;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('gallery')">Gallery</button>
+    <button onclick="showPage('messages')">Message</button>
+    <button onclick="showPage('surprise')">Surprise 🎁</button>
+  </nav>
+
+  <div id="content" class="page"></div>
+
+  <audio id="birthdaySong" src="birthday-song.mp3"></audio>
+
+  <script>
+    const pages = {
+      home: `
+        <h1>Happy 24th Birthday My Love ❤️</h1>
+        <p>You are my happiness, my peace, my answered prayer.</p>
+        <div class="message">
+          On this special day, I want you to know how deeply grateful I am to have you in my life. Your smile lights up my world and your love gives me strength every single day. Watching you grow, conquer challenges, and walk boldly into your purpose has been one of the greatest blessings of my life.
+          <br><br>
+          As you turn 24 today, I celebrate not just your birthday, but the beautiful soul that you are. Thank you for loving me, supporting me, and believing in us. I look forward to all the memories we will create together. I love you endlessly.
+        </div>
+        <button class="play-btn" onclick="toggleMusic()">Play Birthday Song 🎵</button>
+      `,
+
+      gallery: `
+        <h1>Our Memories 📸</h1>
+        <div class="gallery">
+          <img src="https://i.ibb.co/Hp9Bf6Y8/IMG-20250505-201125-7.jpg">
+          <img src="https://i.ibb.co/jvSyWnSk/IMG-20250505-200800-103.jpg">
+          <img src="https://i.ibb.co/m5yC4D26/IMG-20250624-165833-782.jpg">
+          <img src="https://i.ibb.co/7JqGWG8z/IMG-20250628-150638-088.jpg">
+          <img src="https://i.ibb.co/7dHHGb25/IMG-20250802-140800-883.jpg">
+          <img src="https://i.ibb.co/rfQ3THdp/IMG-20250703-174050-849.jpg">
+          <img src="https://i.ibb.co/gMqrVR0V/IMG-20250803-084715-381.jpg">
+          <img src="https://i.ibb.co/VpBLYmNN/Snapchat-20397702.jpg">
+          <img src="https://i.ibb.co/qLFCh6JH/Snapchat-470810624.jpg">
+          <img src="https://i.ibb.co/3mKGgQvJ/Snapchat-667990278.jpg">
+          <img src="https://i.ibb.co/q3pCYqdr/Snapchat-858221380.jpg">
+          <img src="https://i.ibb.co/PsjffyzQ/Snapchat-1221418657.jpg">
+          <img src="https://i.ibb.co/ZRPDMx1b/Snapchat-935798583.jpg">
+          <img src="https://i.ibb.co/wZ9H8Zmv/IMG-20250628-150846-966.jpg">
+        </div>
+      `,
+
+      messages: `
+        <h1>So Proud of You 🌟</h1>
+        <div class="message">
+          My love, this year you have achieved so much, and I want you to pause and truly see how amazing you are. Passing your orals, sitting for your CLE exams, and pushing through moments of doubt took courage and discipline — and you did it.
+          <br><br>
+          Managing Rembo House of Beauty so gracefully shows your leadership, strength, and determination. You carry responsibility with such wisdom, especially as the best first-born daughter, and I admire you deeply for it.
+          <br><br>
+          Visiting the prayer mountain together remains one of my most cherished memories — it reminded me how strong our bond is, spiritually and emotionally. At 24, you are becoming an even more powerful, beautiful woman, and I am endlessly proud to walk this journey with you.
+          <br><br>
+          Thank you for being my partner, my support system, and my safe place. I believe in you, always.
+        </div>
+      `,
+
+      surprise: `
+        <h1>Surprise 🎁</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fRDGP5wHo-c?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <p>This song is just for you ❤️</p>
+      `
+    };
+
+    function showPage(page) {
+      document.getElementById('content').innerHTML = pages[page];
+    }
+
+    function toggleMusic() {
+      const song = document.getElementById('birthdaySong');
+      if (song.paused) song.play(); else song.pause();
+    }
+
+    showPage('home');
+
+    function createLove() {
+      const love = document.createElement('div');
+      const symbols = ['❤️', '💖', '💐', '🌸', '🌹', '🌺'];
+      love.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+      love.style.position = 'fixed';
+      love.style.left = Math.random() * 100 + 'vw';
+      love.style.top = '-5vh';
+      love.style.fontSize = Math.random() * 18 + 22 + 'px';
+      love.style.opacity = Math.random() * 0.5 + 0.5;
+      love.style.zIndex = '9999';
+      love.style.pointerEvents = 'none';
+      document.body.appendChild(love);
+
+      const duration = Math.random() * 3 + 4;
+      love.animate([
+        { transform: 'translateY(0vh)' },
+        { transform: 'translateY(110vh)' }
+      ], {
+        duration: duration * 1000,
+        easing: 'linear'
+      });
+
+      setTimeout(() => love.remove(), duration * 1000);
+    }
+
+    setInterval(createLove, 250);
+  </script>
+</body>
+</html>
